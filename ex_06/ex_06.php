@@ -1,5 +1,8 @@
 <?php
 function remove_cookie($cookie){
-    setcookie ($cookie,NULL,times()-3600);
+    if (isset($_COOKIE[$cookie])) {
+        unset($_COOKIE[$cookie]);
+        setcookie($cookie, NULL, times()-3600);
+    }
 }
 ?>
